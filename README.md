@@ -19,13 +19,13 @@ It needs the [cache-expiry-handoff](https://github.com/ossianravn/cc-cache-expir
 - **workspace:read**, to name each session after its Orca project and workspace.
 - **workspace:write**, only to open a session's workspace when you press it.
 
-## Install from a folder
+## Install
 
 ```bash
-orca plugin dev load path/to/orca-cache-expiry
+orca plugin install ossianravn/orca-cache-expiry
 ```
 
-Orca shows what the plugin gets and asks you to approve it. Claude Code sessions that were already running pick up the mod's status files after `/reload-plugins` or a restart.
+Orca shows what the plugin gets and asks you to approve it (re-run with the `--approve` it prints). To work on a clone instead, use `orca plugin dev load path/to/orca-cache-expiry`. Claude Code sessions that were already running pick up the mod's status files after `/reload-plugins` or a restart.
 
 ## Develop
 
