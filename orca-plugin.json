@@ -1,0 +1,45 @@
+{
+  "manifestVersion": 2,
+  "id": "cache-expiry",
+  "name": "Prompt cache",
+  "version": "0.1.0",
+  "description": "How long each Claude Code session's prompt cache has left, in the status bar and a sidebar panel. Needs the cache-expiry-handoff Claude Code mod.",
+  "author": { "name": "Ossian Ravn", "url": "https://github.com/ossianravn" },
+  "repository": "https://github.com/ossianravn/orca-cache-expiry",
+  "license": "MIT",
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "contributes": {
+    "panels": [
+      {
+        "id": "sessions",
+        "title": "Prompt cache",
+        "icon": "gauge",
+        "entry": "src/panel.tsx",
+        "ui": "components"
+      }
+    ],
+    "commands": [
+      {
+        "id": "open-soonest",
+        "title": "Prompt cache: Open the session that expires first"
+      }
+    ],
+    "statusBarItems": [
+      {
+        "id": "cache",
+        "icon": "gauge",
+        "tooltip": "Prompt cache",
+        "command": "open-soonest"
+      }
+    ]
+  },
+  "capabilities": [
+    { "kind": "workspace:read" },
+    { "kind": "workspace:write" }
+  ]
+}
